@@ -1,0 +1,208 @@
+/** -------------------------------------------------
+ ** Algorithm:   Tilde
+ ** Output type: out
+ ** Date:        8/7/2017 1:16:43
+ ** ACE version: 1.2.20
+ ** Hardware:    sumit-Lenovo-G505s : x86_64 running Linux
+ ** -------------------------------------------------
+ ** Settings:
+ **
+ ** Common ** 
+ *  heuristic : eucl 
+ *  tilde_mode : regression 
+ *  intra_literal_sharing : yes (default) 
+ *  query_batch_size : default (default) 
+ *  single_query_generation : no (default) 
+ *  inst_generation_prob : 1.0 (default) 
+ *  rmode_inst_generation_prob : 1.0 (default) 
+ *  query_sample_probability : 1.0 (default) 
+ *  query_sample_algo : smart (default) 
+ *  aggregate_refiners : no (default) 
+ *  aggregate_recursion : no (default) 
+ *  aggregate_maxconjuncts : 2 (default) 
+ *  aggregate_lookahead : no (default) 
+ *  aggregate_refinement : no (default) 
+ *  example_cache : 102400 (default) 
+ *  select_root_models : on (default) 
+ *  write_predictions : [] (default) 
+ *  compatibility : ace1.1 (default) 
+ *  max_query_len : inf (default) 
+ *  log_pid : off (default) 
+ *  nsplit_unsorted_fractions : 0 (default) 
+ *  nsplit_sorting : basic (default) 
+ *  nsplit_version : basic (default) 
+ *  nsplit_talking : off (default) 
+ *  discretize : entropy (default) 
+ *  transform_queries : once (default) 
+ *  output_dir : default (default) 
+ *  bg_file : default (default) 
+ *  kb_file : default (default) 
+ *  randomise : none (default) 
+ *  report_timings : off (default) 
+ *  default_prefix : off (default) 
+ *  default_min : 1 (default) 
+ *  default_preprocessing : off (default) 
+ *  mi_distance_maxsample : 100 (default) 
+ *  language_warnings : on (default) 
+ *  expert_implicit_language : off (default) 
+ *  granularity : 10 (default) 
+ *  leave_out : false (default) 
+ *  classes : [] (default) 
+ *  use_packs : ilp (default) 
+ *  outerloop : queries (default) 
+ *  talking : 3 (default) 
+ *  load : examples 
+ ** Tilde ** 
+ *  combining_rules_EMiters : 10 (default) 
+ *  combining_rules_EMruns : 5 (default) 
+ *  combining_rules : off (default) 
+ *  write_ensemble_models : [] (default) 
+ *  tilde_maxdepth : inf (default) 
+ *  exhaustive_lookahead : 0 (default) 
+ *  query_length_bias : short (default) 
+ *  special_min : 0.0 (default) 
+ *  out_of_bag : no (default) 
+ *  roulette_wheel_selection : no (default) 
+ *  tilde_rst_optimization : no (default) 
+ *  repeat_exec_time : 1 (default) 
+ *  combination_rule : sum (default) 
+ *  show_averages : 1 (default) 
+ *  classify_mode : 0 (default) 
+ *  complexity_penalty : 1.0 (default) 
+ *  precompute : [] (default) 
+ *  resume : off (default) 
+ *  m_estimate : none (default) 
+ *  output_options : [c45e,lp,ldt_term,prolog,roc01,elaborate] 
+ *  prune_rules : false (default) 
+ *  confidence_level : 0.25 (default) 
+ *  random_test_set : 0 (default) 
+ *  random_validation_set : 0 (default) 
+ *  stopping_criterion : mincases (default) 
+ *  pruning : c45 (default) 
+ *  discretization : none (default) 
+ *  multiscore_2 : off (default) 
+ *  multiscore : off (default) 
+ *  sampling_strategy : fixed(1000) (default) 
+ *  max_querytime : 100 (default) 
+ *  accuracy : 1.0 (default) 
+ *  tilde_test_eval_model : std (default) 
+ *  minimal_cases : 2 (default) 
+ *  ftest : 0.05 (default) 
+ *  tilde_version : 3.0 (default) 
+ ************** 
+ ** Language:
+ **
+ ** WARMODE BIAS ** 
+ ** RMODE BIAS ** 
+ *  rmode(objectID(+-A)) 
+ *  rmode((position(+-A,+-B,+-C),objectID(A))) 
+ *  rmode((distance(+-A,+-B,C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((color_distance(+-A,+-B,C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400])) 
+ *  rmode(north(+A,+B)) 
+ *  rmode(south(+A,+B)) 
+ *  rmode(east(+A,+B)) 
+ *  rmode(west(+A,+B)) 
+ *  rmode((north(+A,+B),east(A,B))) 
+ *  rmode((south(+A,+B),east(A,B))) 
+ *  rmode((north(+A,+B),west(A,B))) 
+ *  rmode((south(+A,+B),west(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),north(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),south(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),east(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),west(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),north(A,B),east(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),south(A,B),east(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),north(A,B),west(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),south(A,B),west(A,B))) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),north(A,B),distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),south(A,B),distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),east(A,B),distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),west(A,B),distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),color_distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400],distance(A,B,-D),D< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),objectID(+-C),shape(A,#),shape(B,#),shape(C,#),mid(A,B,-D,-E),position(C,-F,-G),distance(D,E,F,G,-H),H< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  max_lookahead(1) 
+ *  typed_language(yes) 
+ *  type(number=number) 
+ *  type(number<number) 
+ *  type(number>number) 
+ *  type(objectID(object)) 
+ *  type(shape(object,number)) 
+ *  type(size(object,number,number)) 
+ *  type(area(object,number)) 
+ *  type(color(object,number,number,number)) 
+ *  type(position(object,number,number)) 
+ *  type(north(object,object)) 
+ *  type(south(object,object)) 
+ *  type(east(object,object)) 
+ *  type(west(object,object)) 
+ *  type(north(number,number,number,number)) 
+ *  type(south(number,number,number,number)) 
+ *  type(east(number,number,number,number)) 
+ *  type(west(number,number,number,number)) 
+ *  type(color_distance(object,object,number)) 
+ *  type(color_distance(number,number,number,number,number,number,number)) 
+ *  type(distance(object,object,number)) 
+ *  type(distance(number,number,number,number,number)) 
+ *  type(mid(object,object,number,number)) 
+ *  type(mid(number,number,number,number,number,number)) 
+ *  type(member(A,B)) 
+ *  type(for_int(A,B,C)) 
+ ******************** 
+ **/
+
+Average discretization time: 0.0
+Average induction time: 13.76
+
+Model:
+    Complexity: 3.0 nodes, 24.0 literals
+Training:
+    Number of examples: 49
+    Pearson correlation: [0.608963385452207]
+    MSE: [0.0416721395320994]
+    MAE: [0.12982836977422]
+     -------- Roc curve
+    0.0	0.0
+    0.0	0.19047619047619
+    0.0	0.333333333333333
+    0.0	0.5
+    1.0	1.0
+    1.0	1.0
+    ------------------
+    Total Area Under Curve = 0.75
+    ------------------
+    Chi-Square = 1.45505656634651
+    P-Value (8 DF) = 0.993429221898383
+Testing:
+    No examples available.
+
+
+Compact notation of tree:
+
+[0.202912976143497] 49.0 
+objectID(-A),objectID(-B),shape(A,0),shape(B,1),color_distance(A,B,-C),C<10,distance(A,B,-D),D<200 ? 
++--yes: [0.338451870249082] 28.0 [0.0519634559446152]
++--no:  [0.0221944506693829] 21.0 
+        objectID(-E),objectID(-F),shape(E,0),shape(F,1),color_distance(E,F,-G),G<10,distance(E,F,-H),H<300 ? 
+        +--yes: [0.0390045832182857] 7.0 [0.00333852748317507]
+        +--no:  [0.0137893843949314] 14.0 
+                objectID(-I),objectID(-J),shape(I,0),shape(J,1),color_distance(I,J,-K),K<10,distance(I,J,-L),L<400 ? 
+                +--yes: [0.0195479340043833] 6.0 [0.00156696363058395]
+                +--no:  [0.0094704721878425] 8.0 [0.000858610352681244]
+
+Equivalent prolog program:
+
+class([0.338451870249082]) :- objectID(A),objectID(B),shape(A,0),shape(B,1),color_distance(A,B,C),C<10,distance(A,B,D),D<200, !.
+% 28.0 examples.
+class([0.0390045832182857]) :- objectID(A),objectID(B),shape(A,0),shape(B,1),color_distance(A,B,C),C<10,distance(A,B,D),D<300, !.
+% 7.0 examples.
+class([0.0195479340043833]) :- objectID(A),objectID(B),shape(A,0),shape(B,1),color_distance(A,B,C),C<10,distance(A,B,D),D<400, !.
+% 6.0 examples.
+class([0.0094704721878425]).
+% 8.0 examples.
+
+
+Tree as term:
+
+ldt(inode(test((true,objectID(_729433),objectID(_729435),shape(_729433,0),shape(_729435,1),color_distance(_729433,_729435,_729445),_729445<10,distance(_729433,_729435,_729431),_729431<200)),ldt(leaf(constant_local_leaf_model([0.338451870249082],[0.0519634559446152],28.0))),ldt(inode(test((true,objectID(_2727462),objectID(_2727464),shape(_2727462,0),shape(_2727464,1),color_distance(_2727462,_2727464,_2727474),_2727474<10,distance(_2727462,_2727464,_2727460),_2727460<300)),ldt(leaf(constant_local_leaf_model([0.0390045832182857],[0.00333852748317507],7.0))),ldt(inode(test((true,objectID(_2727483),objectID(_2727485),shape(_2727483,0),shape(_2727485,1),color_distance(_2727483,_2727485,_2727495),_2727495<10,distance(_2727483,_2727485,_2727481),_2727481<400)),ldt(leaf(constant_local_leaf_model([0.0195479340043833],[0.00156696363058395],6.0))),ldt(leaf(constant_local_leaf_model([0.0094704721878425],[0.000858610352681244],8.0)))))))))
+
+

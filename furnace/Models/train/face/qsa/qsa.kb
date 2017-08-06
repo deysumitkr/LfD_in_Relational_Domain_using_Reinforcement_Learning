@@ -1,0 +1,931 @@
+begin(model(task1)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 975, 601).
+qsa(0.00636268544114).
+end(model(task1)).
+
+begin(model(task2)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 975, 601).
+qsa(0.00706965049015).
+end(model(task2)).
+
+begin(model(task3)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 977, 580).
+qsa(0.00785516721128).
+end(model(task3)).
+
+begin(model(task4)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 977, 555).
+qsa(0.00872796356809).
+end(model(task4)).
+
+begin(model(task5)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 977, 527).
+qsa(0.00969773729788).
+end(model(task5)).
+
+begin(model(task6)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 977, 502).
+qsa(0.0107752636643).
+end(model(task6)).
+
+begin(model(task7)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 977, 476).
+qsa(0.0119725151826).
+end(model(task7)).
+
+begin(model(task8)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 975, 454).
+qsa(0.0133027946473).
+end(model(task8)).
+
+begin(model(task9)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 969, 428).
+qsa(0.0147808829414).
+end(model(task9)).
+
+begin(model(task10)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 964, 402).
+qsa(0.0164232032683).
+end(model(task10)).
+
+begin(model(task11)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 957, 374).
+qsa(0.0182480036314).
+end(model(task11)).
+
+begin(model(task12)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 950, 352).
+qsa(0.0202755595904).
+end(model(task12)).
+
+begin(model(task13)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 948, 332).
+qsa(0.0225283995449).
+end(model(task13)).
+
+begin(model(task14)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 941, 311).
+qsa(0.0250315550499).
+end(model(task14)).
+
+begin(model(task15)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 937, 291).
+qsa(0.0278128389444).
+end(model(task15)).
+
+begin(model(task16)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 927, 271).
+qsa(0.0309031543826).
+end(model(task16)).
+
+begin(model(task17)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 913, 243).
+qsa(0.0343368382029).
+end(model(task17)).
+
+begin(model(task18)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 900, 216).
+qsa(0.0381520424477).
+end(model(task18)).
+
+begin(model(task19)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 888, 199).
+qsa(0.0423911582752).
+end(model(task19)).
+
+begin(model(task20)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 871, 176).
+qsa(0.0471012869725).
+end(model(task20)).
+
+begin(model(task21)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 859, 158).
+qsa(0.0523347633027).
+end(model(task21)).
+
+begin(model(task22)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 844, 143).
+qsa(0.058149737003).
+end(model(task22)).
+
+begin(model(task23)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 826, 132).
+qsa(0.0646108188923).
+end(model(task23)).
+
+begin(model(task24)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 808, 121).
+qsa(0.0717897987692).
+end(model(task24)).
+
+begin(model(task25)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 793, 107).
+qsa(0.0797664430769).
+end(model(task25)).
+
+begin(model(task26)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 788, 87).
+qsa(0.0886293811965).
+end(model(task26)).
+
+begin(model(task27)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 789, 80).
+qsa(0.0984770902184).
+end(model(task27)).
+
+begin(model(task28)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 216, 392).
+position(3, 789, 80).
+qsa(0.109418989132).
+end(model(task28)).
+
+begin(model(task29)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 224, 366).
+position(3, 789, 80).
+qsa(0.121576654591).
+end(model(task29)).
+
+begin(model(task30)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 238, 338).
+position(3, 789, 80).
+qsa(0.135085171767).
+end(model(task30)).
+
+begin(model(task31)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 256, 308).
+position(3, 789, 80).
+qsa(0.150094635297).
+end(model(task31)).
+
+begin(model(task32)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 272, 280).
+position(3, 789, 80).
+qsa(0.166771816997).
+end(model(task32)).
+
+begin(model(task33)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 288, 254).
+position(3, 789, 80).
+qsa(0.185302018885).
+end(model(task33)).
+
+begin(model(task34)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 304, 230).
+position(3, 789, 80).
+qsa(0.205891132095).
+end(model(task34)).
+
+begin(model(task35)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 318, 210).
+position(3, 789, 80).
+qsa(0.22876792455).
+end(model(task35)).
+
+begin(model(task36)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 332, 190).
+position(3, 789, 80).
+qsa(0.254186582833).
+end(model(task36)).
+
+begin(model(task37)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 344, 172).
+position(3, 789, 80).
+qsa(0.282429536481).
+end(model(task37)).
+
+begin(model(task38)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 358, 156).
+position(3, 789, 80).
+qsa(0.31381059609).
+end(model(task38)).
+
+begin(model(task39)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 375, 135).
+position(3, 789, 80).
+qsa(0.3486784401).
+end(model(task39)).
+
+begin(model(task40)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 389, 119).
+position(3, 789, 80).
+qsa(0.387420489).
+end(model(task40)).
+
+begin(model(task41)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 409, 101).
+position(3, 789, 80).
+qsa(0.43046721).
+end(model(task41)).
+
+begin(model(task42)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 424, 86).
+position(3, 789, 80).
+qsa(0.4782969).
+end(model(task42)).
+
+begin(model(task43)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 440, 73).
+position(3, 789, 80).
+qsa(0.531441).
+end(model(task43)).
+
+begin(model(task44)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 458, 64).
+position(3, 789, 80).
+qsa(0.59049).
+end(model(task44)).
+
+begin(model(task45)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 478, 57).
+position(3, 789, 80).
+qsa(0.6561).
+end(model(task45)).
+
+begin(model(task46)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 498, 55).
+position(3, 789, 80).
+qsa(0.729).
+end(model(task46)).
+
+begin(model(task47)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 519, 55).
+position(3, 789, 80).
+qsa(0.81).
+end(model(task47)).
+
+begin(model(task48)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 540, 55).
+position(3, 789, 80).
+qsa(0.9).
+end(model(task48)).
+
+begin(model(task49)).
+objectID(1).
+shape(1, 0).
+color(1, 223, 223, 223).
+size(1, 150, 50).
+objectID(2).
+shape(2, 1).
+color(2, 223, 223, 223).
+size(2, 80, 80).
+objectID(3).
+shape(3, 1).
+color(3, 223, 223, 223).
+size(3, 80, 80).
+position(1, 659, 205).
+position(2, 528, 72).
+position(3, 789, 80).
+qsa(1.0).
+end(model(task49)).
+
