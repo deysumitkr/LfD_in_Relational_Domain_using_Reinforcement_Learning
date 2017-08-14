@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <exception>
 #include <opencv2/opencv.hpp>
 
 #include "cvui.h"
@@ -16,12 +18,32 @@
 #define furnacePath "~/Documents/projects/tilde"
 #define SAVED_DEMONSTRATIONS_PATH "../furnace/Demonstrations/"
 #define UTILS_PATH "../furnace/Utils/"
+#define SNAPSHOT_DIR "../furnace/Models/snapShots/"
 #define PREDICTION_PATH "../furnace/Models/predict/"
 //#define ACE_ILP_PATH "/home/sumit/Downloads/softwares/ACE-ilProlog-1.2.20/linux/"
 //#define PROLOG_COMMAND "prolog"
 
 cv::Mat CONTROL_BACKGROUND = cv::Mat(250, 600, CV_8UC3, cv::Scalar(49, 52, 49));
 
+/**
+ * @note Returning a pointer which was declared and defined within the function might lead to unexpected behaviour or a crash
+ * @return time in format 2012-05-06.21:47:59
+ */
+const std::string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+
+    return buf;
+}
+
+/**
+ * @brief Execute shell/bash commands and return std-out
+ * @param cmd A valid shell/bash command
+ * @return std-out after execution of the command
+ */
 std::string exec(const char* cmd) {
     char buffer[128];
     std::string result = "";
@@ -41,11 +63,23 @@ std::string exec(const char* cmd) {
 }
 
 
+void showText(std::string msg){
+    std::string cmd = "zenity  --info --text=\""+ msg +"\"";
+    exec(cmd.c_str());
+}
+
 std::string getText(std::string title, std::string message){
     std::string cmd = "zenity  --title  \""+ title +"\" --entry --text \"" + message + "\"";
     std::string str = exec(cmd.c_str());
     str.erase(std::remove_if(str.begin(), str.end(), isspace), str.end());
     return str;
+}
+
+void addLogs(std::string log){
+    std::string logFilePath = "../furnace/Logs/log";
+    std::fstream outFile;
+    outFile.open(logFilePath, std::ios::out | std::ios::app);
+    outFile << log << "\n";
 }
 
 
@@ -58,7 +92,7 @@ void tryFunc(){
     cvui::init(CONTROL_WINDOW_NAME);
 
     /**
-     * @brief examples for directly adding independent object with custom properties
+     * @brief examples for directly adding independent object with custom properties from within code
     p.circle_params.radius = 40;
     scn.addObject(1,st::objects::CIRCLE, cv::Point(400, 60), p, cv::Scalar(0, 0, 200), "red_Ball");
 
@@ -81,40 +115,101 @@ void tryFunc(){
 
         CONTROL_BACKGROUND =  cv::Scalar(49, 52, 49);
 
-        if (cvui::button(CONTROL_BACKGROUND, 50, 50, (scn.isRecording())?"Stop Recording Actions":"Start Recording Actions")) {
-            if(scn.isRecording()) scn.stopRecording();
-            else{
-                std::string fname, tname;
-                tname = getText("Enter Task Name", "Multiple demonstrations may belong to same task name.");
-                fname = getText("Enter File Name", "Name of this particular demonstration. Same file name within same task will be over-written.");
-                exec(("cd " + std::string(SAVED_DEMONSTRATIONS_PATH) + "; mkdir " + tname).c_str());
-                scn.startRecording(SAVED_DEMONSTRATIONS_PATH + tname + "/" + fname, tname);
+        try {
+
+            if (cvui::button(CONTROL_BACKGROUND, 50, 50, (scn.isRecording())?"Stop Recording Actions":"Start Recording Actions")) {
+                if(scn.isRecording()) {
+                    scn.stopRecording();
+                    showText("Recording Stopped:\nMultiple demonstrations may be given under same task name.");
+                }
+                else{
+                    std::string fname, tname;
+                    tname = getText("Enter Task Name", "Multiple demonstrations may belong to same task name.");
+                    fname = getText("Enter File Name", "Name of this particular demonstration. Same file name within same task will be over-written.");
+                    exec(("cd " + std::string(SAVED_DEMONSTRATIONS_PATH) + "; mkdir " + tname).c_str());
+                    scn.startRecording(SAVED_DEMONSTRATIONS_PATH + tname + "/" + fname, tname);
+                    showText("Recording Started:\nAll changes made in the scene will be recorded still the recording is stopped.");
+                }
             }
+
+            if (cvui::button(CONTROL_BACKGROUND, 50, 150, "Train Model")) {
+                std::cout << exec(("cd " + std::string(UTILS_PATH) + ";python fileSystem.py --savedTasks").c_str()) << std::endl;
+                //std::cout << "Enter the task name you wish to train from the above list (case-sensitive)? ";
+
+                std::string trainTaskName = getText("Enter Task Name:", exec(("cd " + std::string(UTILS_PATH) + ";python fileSystem.py --savedTasks").c_str()));
+                showText("Training will start now. Time required to train a model depends on the amount of data in the demonstration(s).");
+
+                std::string logs;
+                logs = exec(("cd " + std::string(UTILS_PATH) + ";python modelsFormat.py "+trainTaskName).c_str()) ;
+                logs += exec(("cd " + std::string(UTILS_PATH) + ";sh try.sh "+trainTaskName+ " "+ ACE_ILP_PATH).c_str());
+                logs += exec(("cd " + std::string(UTILS_PATH) + ";python makeTemplate.py "+trainTaskName).c_str());
+                addLogs(logs);
+                showText("Training Finished:\nThe trainings details can be found in furnace/Logs/log file.");
+            }
+
+            if (cvui::button(CONTROL_BACKGROUND, 250, 150, "Predict for Current State")) {
+                std::string state = scn.getCurrentState();
+                if(state.length() > 5) {
+                    std::string cmd, taskName;
+                    taskName = getText("Enter Task Name:", exec(("cd " + std::string(UTILS_PATH) + ";python fileSystem.py --savedTasks").c_str()));
+                    cmd = "cd " + std::string(UTILS_PATH) + "; python predict.py -t "+ taskName +" -s \"" + state + "\" -p " + PROLOG_COMMAND;
+                    std::string qsaOut = exec(cmd.c_str());
+                    cmd += " --object";
+                    std::string objID = exec(cmd.c_str());
+                    objID.erase(std::remove_if(objID.begin(), objID.end(), isspace), objID.end());
+                    int recommendedObjectID =  int(std::stod(objID)+0.5);
+
+                    std::string info = "Q(s,a): " + qsaOut + "\n" + "Recommended Object to move:\nObjectID: " + std::to_string(recommendedObjectID) + " -> (" + objID + ")";
+                    showText(info);
+                }
+                else { showText( "State is empty!"); }
+            }
+
+
+            if (cvui::button(CONTROL_BACKGROUND, 250, 100, "Generate Heat Map")) {
+                std::string state = scn.getCurrentState();
+                if(state.length() > 5) {
+                    std::string cmd, taskName;
+                    taskName = getText("Enter Task Name:", exec(("cd " + std::string(UTILS_PATH) + ";python fileSystem.py --savedTasks").c_str()));
+                    showText("It might take a lot of time to evalute Q-values at every position in the image.\nHave Patience!");
+                    cmd = "cd " + std::string(UTILS_PATH) + "; python predict.py -t "+ taskName +" -s \"" + state + "\" -p" + PROLOG_COMMAND;
+                    std::string qsaOut = exec(cmd.c_str());
+                    cmd += " --object --heatMap";
+                    std::string objID = exec(cmd.c_str());
+                    objID.erase(std::remove_if(objID.begin(), objID.end(), isspace), objID.end());
+                    int recommendedObjectID =  int(std::stod(objID)+0.5);
+
+                    std::string info = "Q(s,a): " + qsaOut + "\n" + "Recommended Object to move:\nObjectID: " + std::to_string(recommendedObjectID) + " -> (" + objID + ")";
+                    showText(info);
+                }
+                else { showText( "State is empty!"); }
+            }
+
+            if (cvui::button(CONTROL_BACKGROUND, 50, 100, "Save Current State")) {
+                std::string state = scn.getCurrentState();
+                if(state.length() > 5) {
+                    std::string fileName = getText("Enter file name to save as..:", "Avoid file extension");
+                    cv::imwrite(SNAPSHOT_DIR + fileName + ".png", scn.getScene());
+                }
+                else { showText( "State is empty!"); }
+            }
+
+        }
+        catch(...){
+            showText("Something undesirable happened.\nBut you can anyway continue!");
         }
 
-        if (cvui::button(CONTROL_BACKGROUND, 50, 150, "Train Model")) {
-            std::cout << exec(("cd " + std::string(UTILS_PATH) + ";python fileSystem.py --savedTasks").c_str()) << std::endl;
-            //std::cout << "Enter the task name you wish to train from the above list (case-sensitive)? ";
-            std::string trainTaskName = getText("Enter Task Name:", exec(("cd " + std::string(UTILS_PATH) + ";python fileSystem.py --savedTasks").c_str()));
-            std::cout << exec(("cd " + std::string(UTILS_PATH) + ";python modelsFormat.py "+trainTaskName).c_str()) << std::endl;
-            std::cout << exec(("cd " + std::string(UTILS_PATH) + ";sh try.sh "+trainTaskName+ " "+ ACE_ILP_PATH).c_str()) << std::endl;
-            std::cout << exec(("cd " + std::string(UTILS_PATH) + ";python makeTemplate.py "+trainTaskName).c_str()) << std::endl;
-        }
-
-        if (cvui::button(CONTROL_BACKGROUND, 250, 150, "Predict for Current State")) {
+        if (cvui::button(CONTROL_BACKGROUND, 250, 50, "Show Current State")) {
             std::string state = scn.getCurrentState();
             if(state.length() > 5) {
                 std::string cmd, taskName;
-                taskName = getText("Enter Task Name:", exec(("cd " + std::string(UTILS_PATH) + ";python fileSystem.py --savedTasks").c_str()));
-                cmd = "cd " + std::string(UTILS_PATH) + "; python predict.py -t "+ taskName +" -s \"" + state + "\" -p " + PROLOG_COMMAND;
-                std::cout << exec(cmd.c_str()) << std::endl;
-                cmd += " --object";
-                std::cout << exec(cmd.c_str()) << std::endl;
+                showText(state);
             }
-            else { std::cout << "State is empty." << std::endl; }
+            else { showText( "State is empty!"); }
         }
 
         if (cvui::button(CONTROL_BACKGROUND, 0, 0, "Exit")) {
+            showText( "The demonstrations and trained models will remain saved.\n Tot Ziens!");
             loop = false;
         }
 

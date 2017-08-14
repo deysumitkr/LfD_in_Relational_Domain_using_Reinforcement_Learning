@@ -52,16 +52,16 @@ objectID(1).
 shape(1, 0).
 color(1, 223, 223, 223).
 size(1, 150, 50).
-position(1, 640, 360).
+position(1, 694, 222).
 objectID(2).
-shape(2, 1).
+shape(2, 0).
 color(2, 223, 223, 223).
-size(2, 80, 80).
-position(2, 925, 158).
+size(2, 150, 50).
+position(2, 181, 400).
 objectID(3).
 shape(3, 1).
 color(3, 223, 223, 223).
 size(3, 80, 80).
-position(3, 363, 167).
+position(3, 611, 313).
 
 

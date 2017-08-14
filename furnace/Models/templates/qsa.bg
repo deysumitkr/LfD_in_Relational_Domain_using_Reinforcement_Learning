@@ -17,7 +17,14 @@ mid(ID1, ID2, X, Y):-
 	mid(X1, Y1, X2, Y2, X, Y).
 	
 north(_X1, Y1, _X2, Y2):- Y1 < Y2.
+north(ID1, ID2):- position(ID1, X1, Y1), position(ID2, X2, Y2), north(X1, Y1, X2, Y2).
+
 south(_X1, Y1, _X2, Y2):- Y1 > Y2.
+south(ID1, ID2):- position(ID1, X1, Y1), position(ID2, X2, Y2), south(X1, Y1, X2, Y2).
+
 east(X1, _Y1, X2, _Y2):- X1 > X2.
+east(ID1, ID2):- position(ID1, X1, Y1), position(ID2, X2, Y2), east(X1, Y1, X2, Y2).
+
 west(X1, _Y1, X2, _Y2):- X1 < X2.
+west(ID1, ID2):- position(ID1, X1, Y1), position(ID2, X2, Y2), west(X1, Y1, X2, Y2).
 

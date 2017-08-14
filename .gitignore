@@ -16,3 +16,7 @@
 cmake-build-debug*
 storage*
 build*
+
+furnace/Models/predict/*.p
+furnace/Models/snapShots/*
+furnace/Logs/*

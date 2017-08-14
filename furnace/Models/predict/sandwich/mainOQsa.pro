@@ -36,37 +36,39 @@ mid(ID1, ID2, X, Y):-
 	mid(X1, Y1, X2, Y2, X, Y).
 	
 north(_X1, Y1, _X2, Y2):- Y1 < Y2.
+north(ID1, ID2):- position(ID1, X1, Y1), position(ID2, X2, Y2), north(X1, Y1, X2, Y2).
+
 south(_X1, Y1, _X2, Y2):- Y1 > Y2.
+south(ID1, ID2):- position(ID1, X1, Y1), position(ID2, X2, Y2), south(X1, Y1, X2, Y2).
+
 east(X1, _Y1, X2, _Y2):- X1 > X2.
+east(ID1, ID2):- position(ID1, X1, Y1), position(ID2, X2, Y2), east(X1, Y1, X2, Y2).
+
 west(X1, _Y1, X2, _Y2):- X1 < X2.
+west(ID1, ID2):- position(ID1, X1, Y1), position(ID2, X2, Y2), west(X1, Y1, X2, Y2).
 
 %% Learnt Model
-class([0.338451870249082]) :- objectID(A),objectID(B),shape(A,0),shape(B,1),color_distance(A,B,C),C<10,distance(A,B,D),D<200, !.
-% 28.0 examples.
-class([0.0390045832182857]) :- objectID(A),objectID(B),shape(A,0),shape(B,1),color_distance(A,B,C),C<10,distance(A,B,D),D<300, !.
-% 7.0 examples.
-class([0.0195479340043833]) :- objectID(A),objectID(B),shape(A,0),shape(B,1),color_distance(A,B,C),C<10,distance(A,B,D),D<400, !.
-% 6.0 examples.
-class([0.0094704721878425]).
-% 8.0 examples.
+class([2.3]).
+% 110.0 examples.
 
 
 %% State
 
+
 objectID(1).
-shape(1, 0).
+shape(1, 1).
 color(1, 223, 223, 223).
-size(1, 150, 50).
-position(1, 694, 222).
+size(1, 80, 80).
+position(1, 640, 360).
 objectID(2).
 shape(2, 0).
 color(2, 223, 223, 223).
 size(2, 150, 50).
-position(2, 181, 400).
+position(2, 253, 407).
 objectID(3).
-shape(3, 1).
+shape(3, 0).
 color(3, 223, 223, 223).
-size(3, 80, 80).
-position(3, 638, 6).
+size(3, 150, 50).
+position(3, 259, 171).
 
 

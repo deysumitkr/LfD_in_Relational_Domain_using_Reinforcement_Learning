@@ -4,7 +4,7 @@ import glob
 import shutil
 
 ## ------ Settings -----------
-
+DISCOUNT_FACTOR = 0.98
 MOVING_OBJECTS_IS_NEGATIVE_VALUE = False
 INPUT_DIR_PATH = "../Demonstrations/"
 OUTPUT_DIR_PATH = "../Models/train/"
@@ -152,9 +152,9 @@ if __name__ == '__main__':
         print "Number of trajectories: ", len(trajectories)
         print "Total number of sample points (all trajectories): ", len(Traj)
 
-        discountFactor = 0.9
+
         for i in range(len(Traj)):
-            addinKB(Traj[i], 0.9**(len(Traj)-1-i))
+            addinKB(Traj[i], DISCOUNT_FACTOR**(len(Traj)-1-i))
 
 
     print "Committing to files... ",
