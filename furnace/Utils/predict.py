@@ -97,8 +97,13 @@ if __name__ == '__main__':
     if(obj):
         recommendedObject = predictOQsa(taskName, state, prolog_cmd).strip()
         print recommendedObject
+        if results.heat_id < 0:
+            recommendedObject = int(round(float(recommendedObject)))
+        else:
+            recommendedObject = int(round(float(results.heat_id)))
+
     else:
         print predictQsa(taskName, state, prolog_cmd).strip()
 
     if results.heatMap and recommendedObject > 0:
-        genStatesForHeatMap(prolog_cmd, taskName, state, int(round(float(recommendedObject))), (1280, 720))
+        genStatesForHeatMap(prolog_cmd, taskName, state, recommendedObject, (1280, 720))

@@ -174,7 +174,15 @@ void tryFunc(){
                     showText("It might take a lot of time to evalute Q-values at every position in the image.\nHave Patience!");
                     cmd = "cd " + std::string(UTILS_PATH) + "; python predict.py -t "+ taskName +" -s \"" + state + "\" -p" + PROLOG_COMMAND;
                     std::string qsaOut = exec(cmd.c_str());
+                    std::string requestedID = "";
+                    try{
+                        requestedID = getText("Enter object ID for which to generate heat map:", state + "\nLeave blank and press ok to use object ID recommended by the model.");
+                    }
+                    catch(...){
+                        requestedID = "";
+                    }
                     cmd += " --object --heatMap";
+                    if(requestedID != "") cmd += " -id " + requestedID;
                     std::string objID = exec(cmd.c_str());
                     objID.erase(std::remove_if(objID.begin(), objID.end(), isspace), objID.end());
                     int recommendedObjectID =  int(std::stod(objID)+0.5);

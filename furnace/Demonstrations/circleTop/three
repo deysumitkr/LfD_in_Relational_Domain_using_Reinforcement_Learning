@@ -1,0 +1,29 @@
+circleTop
+
+Header:
+objectID(1).
+shape(1, 1).
+color(1, 223, 16, 7).
+size(1, 62, 62).
+objectID(2).
+shape(2, 0).
+color(2, 49, 107, 223).
+size(2, 226, 50).
+
+Initial State:
+position(1, 606, 476).
+position(2, 621, 362).
+
+Trajectories:
+#
+move(1, 606, 476).
+move(1, 609, 455).
+move(1, 610, 435).
+move(1, 613, 415).
+move(1, 614, 395).
+move(1, 614, 373).
+move(1, 614, 351).
+move(1, 614, 329).
+move(1, 613, 309).
+move(1, 610, 289).
+move(1, 608, 284).

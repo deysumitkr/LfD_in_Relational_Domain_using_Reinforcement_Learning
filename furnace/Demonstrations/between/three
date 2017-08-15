@@ -1,0 +1,32 @@
+between
+
+Header:
+objectID(1).
+shape(1, 0).
+color(1, 150, 133, 223).
+size(1, 192, 40).
+objectID(2).
+shape(2, 1).
+color(2, 26, 193, 224).
+size(2, 84, 84).
+objectID(3).
+shape(3, 0).
+color(3, 223, 223, 82).
+size(3, 189, 39).
+
+Initial State:
+position(1, 676, 397).
+position(2, 674, 473).
+position(3, 686, 254).
+
+Trajectories:
+#
+move(2, 674, 473).
+move(2, 675, 453).
+move(2, 677, 433).
+move(2, 680, 412).
+move(2, 681, 392).
+move(2, 681, 371).
+move(2, 681, 348).
+move(2, 681, 327).
+move(2, 681, 322).

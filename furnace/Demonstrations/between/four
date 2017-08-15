@@ -1,0 +1,50 @@
+between
+
+Header:
+objectID(1).
+shape(1, 0).
+color(1, 223, 76, 42).
+size(1, 194, 50).
+objectID(2).
+shape(2, 0).
+color(2, 58, 118, 215).
+size(2, 194, 50).
+objectID(3).
+shape(3, 1).
+color(3, 35, 222, 127).
+size(3, 80, 80).
+
+Initial State:
+position(1, 881, 547).
+position(2, 544, 562).
+position(3, 174, 513).
+
+Trajectories:
+#
+move(3, 174, 513).
+move(3, 195, 521).
+move(3, 216, 523).
+move(3, 239, 523).
+move(3, 260, 523).
+move(3, 280, 524).
+move(3, 301, 524).
+move(3, 324, 528).
+move(3, 346, 530).
+move(3, 367, 533).
+move(3, 389, 535).
+move(3, 409, 538).
+move(3, 429, 540).
+move(3, 449, 543).
+move(3, 471, 544).
+move(3, 493, 544).
+move(3, 516, 544).
+move(3, 537, 544).
+move(3, 558, 544).
+move(3, 581, 544).
+move(3, 602, 544).
+move(3, 623, 544).
+move(3, 643, 545).
+move(3, 664, 549).
+move(3, 684, 552).
+move(3, 704, 553).
+move(3, 716, 552).

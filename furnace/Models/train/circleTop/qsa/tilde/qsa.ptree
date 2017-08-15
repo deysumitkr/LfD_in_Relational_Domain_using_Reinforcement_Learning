@@ -1,0 +1,31 @@
+[0.751807383706975] 79.0 
+objectID(-A),objectID(-B),shape(A,0),shape(B,1),color_distance(A,B,-C),C<300,distance(A,B,-D),D<300 ? 
++--yes: [0.8815376991685] 40.0 
+|       objectID(B),objectID(A),objectID(B),shape(B,1),shape(A,0),shape(B,1),mid(B,A,-E,-F),position(B,-G,-H),distance(E,F,G,H,-I),I<90 ? 
+|       +--yes: [0.922458665877077] 26.0 
+|       |       objectID(B),objectID(A),shape(B,1),shape(A,0),north(B,A),distance(B,A,-J),J<100 ? 
+|       |       +--yes: [0.9743184] 10.0 [0.00719385226920418]
+|       |       +--no:  [0.89004633205025] 16.0 
+|       |               east(A,B) ? 
+|       |               +--yes: [0.876071696333666] 12.0 [0.00981199318475269]
+|       |               +--no:  [0.9319702392] 4.0 [0.0121527202555361]
+|       +--no:  [0.805541618138286] 14.0 
+|               north(B,A) ? 
+|               +--yes: [0.841432945513] 7.0 [0.011062487862342]
+|               +--no:  [0.769650290763571] 7.0 [0.0126933472276767]
++--no:  [0.618750649900282] 39.0 
+        objectID(-K),objectID(-L),shape(K,0),shape(L,1),color_distance(K,L,-M),M<300,distance(K,L,-N),N<500 ? 
+        +--yes: [0.6832506684055] 20.0 
+        |       objectID(L),objectID(K),shape(L,1),shape(K,0),north(L,K),distance(L,K,-O),O<400 ? 
+        |       +--yes: [0.7539495755414] 5.0 [0.0107693896379697]
+        |       +--no:  [0.659684366026867] 15.0 [0.00966850638426835]
+        +--no:  [0.550855893579] 19.0 
+                objectID(-P),objectID(-Q),shape(P,0),shape(Q,1),color_distance(P,Q,-R),R<300,distance(P,Q,-S),S<700 ? 
+                +--yes: [0.588849714215455] 11.0 
+                |       objectID(Q),objectID(P),shape(Q,1),shape(P,0),north(Q,P),distance(Q,P,-T),T<600 ? 
+                |       +--yes: [0.6160316959394] 5.0 [0.00879937541995125]
+                |       +--no:  [0.566198062778833] 6.0 [0.00543038083985409]
+                +--no:  [0.498614390203875] 8.0 
+                        objectID(-U),objectID(-V),shape(U,1),shape(V,0),north(U,V),distance(U,V,-W),W<800 ? 
+                        +--yes: [0.5136150478908] 5.0 [0.00733645956447718]
+                        +--no:  [0.473613294059] 3.0 [0.00552396187994652]

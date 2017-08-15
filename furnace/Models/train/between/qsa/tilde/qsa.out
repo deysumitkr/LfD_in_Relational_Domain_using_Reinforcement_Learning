@@ -1,0 +1,263 @@
+/** -------------------------------------------------
+ ** Algorithm:   Tilde
+ ** Output type: out
+ ** Date:        8/14/2017 21:1:13
+ ** ACE version: 1.2.20
+ ** Hardware:    sumit-Lenovo-G505s : x86_64 running Linux
+ ** -------------------------------------------------
+ ** Settings:
+ **
+ ** Common ** 
+ *  heuristic : eucl 
+ *  tilde_mode : regression 
+ *  intra_literal_sharing : yes (default) 
+ *  query_batch_size : default (default) 
+ *  single_query_generation : no (default) 
+ *  inst_generation_prob : 1.0 (default) 
+ *  rmode_inst_generation_prob : 1.0 (default) 
+ *  query_sample_probability : 1.0 (default) 
+ *  query_sample_algo : smart (default) 
+ *  aggregate_refiners : no (default) 
+ *  aggregate_recursion : no (default) 
+ *  aggregate_maxconjuncts : 2 (default) 
+ *  aggregate_lookahead : no (default) 
+ *  aggregate_refinement : no (default) 
+ *  example_cache : 102400 (default) 
+ *  select_root_models : on (default) 
+ *  write_predictions : [] (default) 
+ *  compatibility : ace1.1 (default) 
+ *  max_query_len : inf (default) 
+ *  log_pid : off (default) 
+ *  nsplit_unsorted_fractions : 0 (default) 
+ *  nsplit_sorting : basic (default) 
+ *  nsplit_version : basic (default) 
+ *  nsplit_talking : off (default) 
+ *  discretize : entropy (default) 
+ *  transform_queries : once (default) 
+ *  output_dir : default (default) 
+ *  bg_file : default (default) 
+ *  kb_file : default (default) 
+ *  randomise : none (default) 
+ *  report_timings : off (default) 
+ *  default_prefix : off (default) 
+ *  default_min : 1 (default) 
+ *  default_preprocessing : off (default) 
+ *  mi_distance_maxsample : 100 (default) 
+ *  language_warnings : on (default) 
+ *  expert_implicit_language : off (default) 
+ *  granularity : 10 (default) 
+ *  leave_out : false (default) 
+ *  classes : [] (default) 
+ *  use_packs : ilp (default) 
+ *  outerloop : queries (default) 
+ *  talking : 3 (default) 
+ *  load : examples 
+ ** Tilde ** 
+ *  combining_rules_EMiters : 10 (default) 
+ *  combining_rules_EMruns : 5 (default) 
+ *  combining_rules : off (default) 
+ *  write_ensemble_models : [] (default) 
+ *  tilde_maxdepth : inf (default) 
+ *  exhaustive_lookahead : 0 (default) 
+ *  query_length_bias : short (default) 
+ *  special_min : 0.0 (default) 
+ *  out_of_bag : no (default) 
+ *  roulette_wheel_selection : no (default) 
+ *  tilde_rst_optimization : no (default) 
+ *  repeat_exec_time : 1 (default) 
+ *  combination_rule : sum (default) 
+ *  show_averages : 1 (default) 
+ *  classify_mode : 0 (default) 
+ *  complexity_penalty : 1.0 (default) 
+ *  precompute : [] (default) 
+ *  resume : off (default) 
+ *  m_estimate : none (default) 
+ *  output_options : [c45e,lp,ldt_term,prolog,roc01,elaborate] 
+ *  prune_rules : false (default) 
+ *  confidence_level : 0.25 (default) 
+ *  random_test_set : 0 (default) 
+ *  random_validation_set : 0 (default) 
+ *  stopping_criterion : mincases (default) 
+ *  pruning : c45 (default) 
+ *  discretization : none (default) 
+ *  multiscore_2 : off (default) 
+ *  multiscore : off (default) 
+ *  sampling_strategy : fixed(1000) (default) 
+ *  max_querytime : 100 (default) 
+ *  accuracy : 1.0 (default) 
+ *  tilde_test_eval_model : std (default) 
+ *  minimal_cases : 2 (default) 
+ *  ftest : 0.05 (default) 
+ *  tilde_version : 3.0 (default) 
+ ************** 
+ ** Language:
+ **
+ ** WARMODE BIAS ** 
+ ** RMODE BIAS ** 
+ *  rmode(objectID(+A)) 
+ *  rmode(shape(+A,#)) 
+ *  rmode((position(+A,+-B,+-C),objectID(A))) 
+ *  rmode((distance(+A,+B,C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((color_distance(+A,+B,C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400])) 
+ *  rmode(north(+A,+B)) 
+ *  rmode(south(+A,+B)) 
+ *  rmode(east(+A,+B)) 
+ *  rmode(west(+A,+B)) 
+ *  rmode((north(+A,+B),east(A,B))) 
+ *  rmode((south(+A,+B),east(A,B))) 
+ *  rmode((north(+A,+B),west(A,B))) 
+ *  rmode((south(+A,+B),west(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),north(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),south(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),east(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),west(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),north(A,B),east(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),south(A,B),east(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),north(A,B),west(A,B))) 
+ *  rmode((shape(+A,#),shape(+B,#),south(A,B),west(A,B))) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),north(A,B),distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),south(A,B),distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),east(A,B),distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),west(A,B),distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),shape(A,#),shape(B,#),color_distance(A,B,-C),C< #[10,20,30,40,50,60,70,80,90,100,200,300,400],distance(A,B,-D),D< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  rmode((objectID(+-A),objectID(+-B),objectID(+-C),shape(A,#),shape(B,#),shape(C,#),mid(A,B,-D,-E),position(C,-F,-G),distance(D,E,F,G,-H),H< #[10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000])) 
+ *  max_lookahead(1) 
+ *  typed_language(yes) 
+ *  type(number=number) 
+ *  type(number<number) 
+ *  type(number>number) 
+ *  type(objectID(object)) 
+ *  type(shape(object,number)) 
+ *  type(size(object,number,number)) 
+ *  type(area(object,number)) 
+ *  type(color(object,number,number,number)) 
+ *  type(position(object,number,number)) 
+ *  type(north(object,object)) 
+ *  type(south(object,object)) 
+ *  type(east(object,object)) 
+ *  type(west(object,object)) 
+ *  type(north(number,number,number,number)) 
+ *  type(south(number,number,number,number)) 
+ *  type(east(number,number,number,number)) 
+ *  type(west(number,number,number,number)) 
+ *  type(color_distance(object,object,number)) 
+ *  type(color_distance(number,number,number,number,number,number,number)) 
+ *  type(distance(object,object,number)) 
+ *  type(distance(number,number,number,number,number)) 
+ *  type(mid(object,object,number,number)) 
+ *  type(mid(number,number,number,number,number,number)) 
+ *  type(member(A,B)) 
+ *  type(for_int(A,B,C)) 
+ ******************** 
+ **/
+
+Average discretization time: 0.0
+Average induction time: 135.89
+
+Model:
+    Complexity: 15.0 nodes, 113.0 literals
+Training:
+    Number of examples: 70
+    Pearson correlation: [0.987206973068222]
+    MSE: [0.000304049360354069]
+    MAE: [0.0121582342297141]
+     -------- Roc curve
+    ------------------
+    Total Area Under Curve = 0.0
+    ------------------
+    Chi-Square = 0.0
+    P-Value (8 DF) = 1.0
+Testing:
+    No examples available.
+
+
+Compact notation of tree:
+
+[0.834315127877814] 70.0 
+objectID(-A),objectID(-B),objectID(-C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,-D,-E),position(C,-F,-G),distance(D,E,F,G,-H),H<100 ? 
++--yes: [0.908570937025] 38.0 
+|       north(B,A) ? 
+|       +--yes: [0.960792032] 20.0 
+|       |       objectID(B),objectID(A),objectID(C),shape(B,0),shape(A,0),shape(C,1),mid(B,A,-I,-J),position(C,-K,-L),distance(I,J,K,L,-M),M<40 ? 
+|       |       +--yes: [0.99] 8.0 [0.00377964473009185]
+|       |       +--no:  [0.941320053333333] 12.0 
+|       |               objectID(B),objectID(A),objectID(C),shape(B,0),shape(A,0),shape(C,1),mid(B,A,-N,-O),position(C,-P,-Q),distance(N,O,P,Q,-R),R<60 ? 
+|       |               +--yes: [0.9604] 4.0 [3.79020827731576e-09]
+|       |               +--no:  [0.93178008] 8.0 
+|       |                       objectID(A),objectID(-S),objectID(C),shape(A,0),shape(S,0),shape(C,1),mid(A,S,-T,-U),position(C,-V,-W),distance(T,U,V,W,-X),X<80 ? 
+|       |                       +--yes: [0.937427232] 5.0 [0.00376476800000407]
+|       |                       +--no:  [0.92236816] 3.0 [5.01892722342931e-09]
+|       +--no:  [0.850547498163889] 18.0 
+|               objectID(C),objectID(B),shape(C,1),shape(B,0),east(C,B),distance(C,B,-Y),Y<70 ? 
+|               +--yes: [0.89045237692775] 4.0 [0.00857582202164484]
+|               +--no:  [0.839146104231357] 14.0 
+|                       north(B,C),east(B,C) ? 
+|                       +--yes: [0.87264332938925] 4.0 [0.00840430558120922]
+|                       +--no:  [0.8257472141682] 10.0 
+|                               distance(C,B,-Z),Z<90 ? 
+|                               +--yes: [0.834003008399625] 8.0 [0.00779942740946051]
+|                               +--no:  [0.7927240372425] 2.0 [0.00800731350750169]
++--no:  [0.746136354515531] 32.0 
+        objectID(-A1),objectID(-B1),objectID(-C1),shape(A1,0),shape(B1,1),shape(C1,0),mid(A1,B1,-D1,-E1),position(C1,-F1,-G1),distance(D1,E1,F1,G1,-H1),H1<50 ? 
+        +--yes: [0.628860323396] 7.0 
+        |       objectID(C1),objectID(B1),objectID(A1),shape(C1,0),shape(B1,1),shape(A1,0),mid(C1,B1,-I1,-J1),position(A1,-K1,-L1),distance(I1,J1,K1,L1,-M1),M1<500 ? 
+        |       +--yes: [0.654344826716333] 3.0 [0.00763191389343075]
+        |       +--no:  [0.60974694590575] 4.0 [0.00795098786270968]
+        +--no:  [0.778973643229] 25.0 
+                objectID(-N1),objectID(-O1),shape(N1,0),shape(O1,1),north(N1,O1),distance(N1,O1,-P1),P1<300 ? 
+                +--yes: [0.866214875671333] 6.0 [0.018360347746992]
+                +--no:  [0.751423780352474] 19.0 
+                        objectID(-Q1),objectID(-R1),shape(Q1,0),shape(R1,0),north(Q1,R1),distance(Q1,R1,-S1),S1<500 ? 
+                        +--yes: [0.732341093565636] 11.0 
+                        |       objectID(Q1),objectID(-T1),objectID(R1),shape(Q1,0),shape(T1,1),shape(R1,0),mid(Q1,T1,-U1,-V1),position(R1,-W1,-X1),distance(U1,V1,W1,X1,-Y1),Y1<80 ? 
+                        |       +--yes: [0.695229907092667] 3.0 [0.00810877471721647]
+                        |       +--no:  [0.746257788493] 8.0 
+                        |               objectID(-Z1),objectID(-A2),objectID(A2),shape(Z1,0),shape(A2,1),shape(A2,1),mid(Z1,A2,-B2,-C2),position(A2,-D2,-E2),distance(B2,C2,D2,E2,-F2),F2<70 ? 
+                        |               +--yes: [0.7613321653675] 4.0 [0.00443995283445713]
+                        |               +--no:  [0.7311834116185] 4.0 [0.00426413070230214]
+                        +--no:  [0.777662474684375] 8.0 
+                                objectID(-G2),objectID(-H2),shape(G2,1),shape(H2,0),east(G2,H2),distance(G2,H2,-I2),I2<400 ? 
+                                +--yes: [0.817183973256] 3.0 [0.00953117907316876]
+                                +--no:  [0.7539495755414] 5.0 [0.0107693896379697]
+
+Equivalent prolog program:
+
+class([0.99]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<100,north(B,A),objectID(B),objectID(A),objectID(C),shape(B,0),shape(A,0),shape(C,1),mid(B,A,I,J),position(C,K,L),distance(I,J,K,L,M),M<40, !.
+% 8.0 examples.
+class([0.9604]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<100,north(B,A),objectID(B),objectID(A),objectID(C),shape(B,0),shape(A,0),shape(C,1),mid(B,A,I,J),position(C,K,L),distance(I,J,K,L,M),M<60, !.
+% 4.0 examples.
+class([0.937427232]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<100,north(B,A),objectID(A),objectID(I),objectID(C),shape(A,0),shape(I,0),shape(C,1),mid(A,I,J,K),position(C,L,M),distance(J,K,L,M,N),N<80, !.
+% 5.0 examples.
+class([0.92236816]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<100,north(B,A), !.
+% 3.0 examples.
+class([0.89045237692775]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<100,objectID(C),objectID(B),shape(C,1),shape(B,0),east(C,B),distance(C,B,I),I<70, !.
+% 4.0 examples.
+class([0.87264332938925]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<100,north(B,C),east(B,C), !.
+% 4.0 examples.
+class([0.834003008399625]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<100,distance(C,B,I),I<90, !.
+% 8.0 examples.
+class([0.7927240372425]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,0),shape(C,1),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<100, !.
+% 2.0 examples.
+class([0.654344826716333]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,1),shape(C,0),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<50,objectID(C),objectID(B),objectID(A),shape(C,0),shape(B,1),shape(A,0),mid(C,B,I,J),position(A,K,L),distance(I,J,K,L,M),M<500, !.
+% 3.0 examples.
+class([0.60974694590575]) :- objectID(A),objectID(B),objectID(C),shape(A,0),shape(B,1),shape(C,0),mid(A,B,D,E),position(C,F,G),distance(D,E,F,G,H),H<50, !.
+% 4.0 examples.
+class([0.866214875671333]) :- objectID(A),objectID(B),shape(A,0),shape(B,1),north(A,B),distance(A,B,C),C<300, !.
+% 6.0 examples.
+class([0.695229907092667]) :- objectID(A),objectID(B),shape(A,0),shape(B,0),north(A,B),distance(A,B,C),C<500,objectID(A),objectID(D),objectID(B),shape(A,0),shape(D,1),shape(B,0),mid(A,D,E,F),position(B,G,H),distance(E,F,G,H,I),I<80, !.
+% 3.0 examples.
+class([0.7613321653675]) :- objectID(A),objectID(B),shape(A,0),shape(B,0),north(A,B),distance(A,B,C),C<500,objectID(D),objectID(E),objectID(E),shape(D,0),shape(E,1),shape(E,1),mid(D,E,F,G),position(E,H,I),distance(F,G,H,I,J),J<70, !.
+% 4.0 examples.
+class([0.7311834116185]) :- objectID(A),objectID(B),shape(A,0),shape(B,0),north(A,B),distance(A,B,C),C<500, !.
+% 4.0 examples.
+class([0.817183973256]) :- objectID(A),objectID(B),shape(A,1),shape(B,0),east(A,B),distance(A,B,C),C<400, !.
+% 3.0 examples.
+class([0.7539495755414]).
+% 5.0 examples.
+
+
+Tree as term:
+
+ldt(inode(test((true,objectID(_5122),objectID(_5124),objectID(_5126),shape(_5122,0),shape(_5124,0),shape(_5126,1),mid(_5122,_5124,_5139,_5140),position(_5126,_5143,_5144),distance(_5139,_5140,_5143,_5144,_5120),_5120<100)),ldt(inode(test(((true,objectID(_12374970),objectID(_12374975),objectID(_12374980),shape(_12374970,0),shape(_12374975,0),shape(_12374980,1),mid(_12374970,_12374975,_12375005,_12375006),position(_12374980,_12375012,_12375013),distance(_12375005,_12375006,_12375012,_12375013,_12375022),_12375022<100),north(_12374975,_12374970))),ldt(inode(test(((true,objectID(_12378014),objectID(_12378019),objectID(_12378024),shape(_12378014,0),shape(_12378019,0),shape(_12378024,1),mid(_12378014,_12378019,_12378049,_12378050),position(_12378024,_12378056,_12378057),distance(_12378049,_12378050,_12378056,_12378057,_12378066),_12378066<100,north(_12378019,_12378014)),objectID(_12378019),objectID(_12378014),objectID(_12378024),shape(_12378019,0),shape(_12378014,0),shape(_12378024,1),mid(_12378019,_12378014,_12378094,_12378095),position(_12378024,_12378098,_12378099),distance(_12378094,_12378095,_12378098,_12378099,_12378006),_12378006<40)),ldt(leaf(constant_local_leaf_model([0.99],[0.00377964473009185],8.0))),ldt(inode(test(((true,objectID(_1661124),objectID(_1661129),objectID(_1661134),shape(_1661124,0),shape(_1661129,0),shape(_1661134,1),mid(_1661124,_1661129,_1661159,_1661160),position(_1661134,_1661166,_1661167),distance(_1661159,_1661160,_1661166,_1661167,_1661176),_1661176<100,north(_1661129,_1661124)),objectID(_1661129),objectID(_1661124),objectID(_1661134),shape(_1661129,0),shape(_1661124,0),shape(_1661134,1),mid(_1661129,_1661124,_1661204,_1661205),position(_1661134,_1661208,_1661209),distance(_1661204,_1661205,_1661208,_1661209,_1661116),_1661116<60)),ldt(leaf(constant_local_leaf_model([0.9604],[3.79020827731576e-09],4.0))),ldt(inode(test(((true,objectID(_1661316),objectID(_1661321),objectID(_1661326),shape(_1661316,0),shape(_1661321,0),shape(_1661326,1),mid(_1661316,_1661321,_1661351,_1661352),position(_1661326,_1661358,_1661359),distance(_1661351,_1661352,_1661358,_1661359,_1661368),_1661368<100,north(_1661321,_1661316)),objectID(_1661316),objectID(_1661381),objectID(_1661326),shape(_1661316,0),shape(_1661381,0),shape(_1661326,1),mid(_1661316,_1661381,_1661396,_1661397),position(_1661326,_1661400,_1661401),distance(_1661396,_1661397,_1661400,_1661401,_1661308),_1661308<80)),ldt(leaf(constant_local_leaf_model([0.937427232],[0.00376476800000407],5.0))),ldt(leaf(constant_local_leaf_model([0.92236816],[5.01892722342931e-09],3.0))))))))),ldt(inode(test(((true,objectID(_12375037),objectID(_12375042),objectID(_12375047),shape(_12375037,0),shape(_12375042,0),shape(_12375047,1),mid(_12375037,_12375042,_12375072,_12375073),position(_12375047,_12375079,_12375080),distance(_12375072,_12375073,_12375079,_12375080,_12375089),_12375089<100),objectID(_12375047),objectID(_12375042),shape(_12375047,1),shape(_12375042,0),east(_12375047,_12375042),distance(_12375047,_12375042,_12375029),_12375029<70)),ldt(leaf(constant_local_leaf_model([0.89045237692775],[0.00857582202164484],4.0))),ldt(inode(test(((true,objectID(_12376745),objectID(_12376750),objectID(_12376755),shape(_12376745,0),shape(_12376750,0),shape(_12376755,1),mid(_12376745,_12376750,_12376780,_12376781),position(_12376755,_12376787,_12376788),distance(_12376780,_12376781,_12376787,_12376788,_12376797),_12376797<100),north(_12376750,_12376755),east(_12376750,_12376755))),ldt(leaf(constant_local_leaf_model([0.87264332938925],[0.00840430558120922],4.0))),ldt(inode(test(((true,objectID(_12376829),objectID(_12376834),objectID(_12376839),shape(_12376829,0),shape(_12376834,0),shape(_12376839,1),mid(_12376829,_12376834,_12376864,_12376865),position(_12376839,_12376871,_12376872),distance(_12376864,_12376865,_12376871,_12376872,_12376881),_12376881<100),distance(_12376839,_12376834,_12376821),_12376821<90)),ldt(leaf(constant_local_leaf_model([0.834003008399625],[0.00779942740946051],8.0))),ldt(leaf(constant_local_leaf_model([0.7927240372425],[0.00800731350750169],2.0))))))))))),ldt(inode(test((true,objectID(_12370986),objectID(_12370988),objectID(_12370990),shape(_12370986,0),shape(_12370988,1),shape(_12370990,0),mid(_12370986,_12370988,_12371003,_12371004),position(_12370990,_12371007,_12371008),distance(_12371003,_12371004,_12371007,_12371008,_12370984),_12370984<50)),ldt(inode(test(((true,objectID(_12372004),objectID(_12372009),objectID(_12372014),shape(_12372004,0),shape(_12372009,1),shape(_12372014,0),mid(_12372004,_12372009,_12372039,_12372040),position(_12372014,_12372046,_12372047),distance(_12372039,_12372040,_12372046,_12372047,_12372056),_12372056<50),objectID(_12372014),objectID(_12372009),objectID(_12372004),shape(_12372014,0),shape(_12372009,1),shape(_12372004,0),mid(_12372014,_12372009,_12372078,_12372079),position(_12372004,_12372082,_12372083),distance(_12372078,_12372079,_12372082,_12372083,_12371996),_12371996<500)),ldt(leaf(constant_local_leaf_model([0.654344826716333],[0.00763191389343075],3.0))),ldt(leaf(constant_local_leaf_model([0.60974694590575],[0.00795098786270968],4.0))))),ldt(inode(test((true,objectID(_5932),objectID(_5934),shape(_5932,0),shape(_5934,1),north(_5932,_5934),distance(_5932,_5934,_5930),_5930<300)),ldt(leaf(constant_local_leaf_model([0.866214875671333],[0.018360347746992],6.0))),ldt(inode(test((true,objectID(_5949),objectID(_5951),shape(_5949,0),shape(_5951,0),north(_5949,_5951),distance(_5949,_5951,_5947),_5947<500)),ldt(inode(test(((true,objectID(_6032),objectID(_6037),shape(_6032,0),shape(_6037,0),north(_6032,_6037),distance(_6032,_6037,_6062),_6062<500),objectID(_6032),objectID(_6069),objectID(_6037),shape(_6032,0),shape(_6069,1),shape(_6037,0),mid(_6032,_6069,_6084,_6085),position(_6037,_6088,_6089),distance(_6084,_6085,_6088,_6089,_6024),_6024<80)),ldt(leaf(constant_local_leaf_model([0.695229907092667],[0.00810877471721647],3.0))),ldt(inode(test(((true,objectID(_6103),objectID(_6108),shape(_6103,0),shape(_6108,0),north(_6103,_6108),distance(_6103,_6108,_6133),_6133<500),objectID(_6138),objectID(_6140),objectID(_6140),shape(_6138,0),shape(_6140,1),shape(_6140,1),mid(_6138,_6140,_6155,_6156),position(_6140,_6159,_6160),distance(_6155,_6156,_6159,_6160,_6095),_6095<70)),ldt(leaf(constant_local_leaf_model([0.7613321653675],[0.00443995283445713],4.0))),ldt(leaf(constant_local_leaf_model([0.7311834116185],[0.00426413070230214],4.0))))))),ldt(inode(test((true,objectID(_5966),objectID(_5968),shape(_5966,1),shape(_5968,0),east(_5966,_5968),distance(_5966,_5968,_5964),_5964<400)),ldt(leaf(constant_local_leaf_model([0.817183973256],[0.00953117907316876],3.0))),ldt(leaf(constant_local_leaf_model([0.7539495755414],[0.0107693896379697],5.0)))))))))))))
+
+
